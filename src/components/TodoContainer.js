@@ -1,30 +1,11 @@
-import React from "react"
-import TodosList from "./TodosList";
+import React from 'react';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class TodoContainer extends React.Component {
-  state = {
-    todos: [
-      {
-        id: 1,
-        title: "Setup development environment",
-        completed: true
-      },
-      {
-        id: 2,
-        title: "Develop website and add content",
-        completed: false
-      },
-      {
-        id: 3,
-        title: "Deploy to live server",
-        completed: false
-      }
-    ]
-  };
   render() {
     return (
-      <TodosList todos={this.state.todos} />
-    )
+      <h2>Hello React!</h2>
+    );
   }
 }
-export default TodoContainer
+export default TodoContainer;
