@@ -58,17 +58,33 @@ const TodoContainer = () => {
   }
 
   return (
-    <div>
-      <Header />
-      <TodosList todos={this.state.todos} />
-      <InputTodo addTodoProps={addTodoItem} />
-      <TodosList
-        todos={todos}
-        handleChangeProps={handleChange}
-        deleteTodoProps={delTodo}
-        setUpdate={setUpdate}
-      />
-    </div>
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <div className="container">
+            <div className="inner">
+              <Header />
+              <TodosList todos={this.state.todos} />
+              <InputTodo addTodoProps={addTodoItem} />
+              <TodosList
+                todos={todos}
+                handleChangeProps={handleChange}
+                deleteTodoProps={delTodo}
+                setUpdate={setUpdate}
+              />
+            </div>
+          </div>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <NotMatch />
+        </Route>
+      </Switch>
+    </>
   );
 }
+
 export default TodoContainer;
