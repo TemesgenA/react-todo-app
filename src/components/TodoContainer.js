@@ -15,9 +15,9 @@ const TodoContainer = () => {
     // getting stored items
     const temp = localStorage.getItem("todos")
     const savedTodos = JSON.parse(temp)
-    return savedTodos || [] 
+    return savedTodos || []
   }
- 
+
   const handleChange = id => {
     setTodos(prevState => prevState.map((todo) => {
       if (todo.id === id) {
@@ -38,10 +38,10 @@ const TodoContainer = () => {
   };
 
   const addTodoItem = title => {
-    const newTodo = {    
-      id: uuidv4(),    
-      title: title,    
-      completed: false  
+    const newTodo = {
+      id: uuidv4(),
+      title: title,
+      completed: false
     };
     setTodos([...todos, newTodo])
   };
@@ -61,6 +61,13 @@ const TodoContainer = () => {
     <div>
       <Header />
       <TodosList todos={this.state.todos} />
+      <InputTodo addTodoProps={addTodoItem} />
+      <TodosList
+        todos={todos}
+        handleChangeProps={handleChange}
+        deleteTodoProps={delTodo}
+        setUpdate={setUpdate}
+      />
     </div>
   );
 }
