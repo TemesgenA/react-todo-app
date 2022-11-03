@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/destructuring-assignment */
 import React, { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import styles from './TodoItem.module.css';
@@ -5,9 +8,11 @@ import styles from './TodoItem.module.css';
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
 
-  useEffect(() => () => {
-    console.log('Cleaning up...');
-  }, []);
+  useEffect(
+    () => () => {
+    },
+    [],
+  );
 
   const handleEditing = () => {
     setEditing(true);
@@ -56,7 +61,9 @@ const TodoItem = (props) => {
         style={editMode}
         className={styles.textInput}
         value={title}
-        onChange={(e) => { props.setUpdate(e.target.value, id); }}
+        onChange={(e) => {
+          props.setUpdate(e.target.value, id);
+        }}
         onKeyDown={handleUpdatedDone}
       />
     </li>
